@@ -8,7 +8,7 @@ export const createFile = mutation({
     async handler(ctx, args) {
         const identity = await ctx.auth.getUserIdentity();
         if (!identity) {
-            throw new ConvexError("Unauthorized! You must be logged in to upload     a file.");
+            throw new ConvexError("Unauthorized! You must be logged in to upload a file.");
         }
         await ctx.db.insert("files", {
             name: args.name,
